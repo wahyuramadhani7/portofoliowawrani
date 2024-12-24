@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Front-end Developer Portfolio</title>
+    <title>Front-end Developer Portfolio - Wahyu Ramadhani</title>
+    <meta name="description" content="Portfolio website of Wahyu Ramadhani, a passionate front-end developer with expertise in HTML, CSS, JavaScript and React. View my projects and get in touch for collaborations.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
@@ -27,6 +28,20 @@
             color: var(--dark-color);
         }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 1rem;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
         /* Navigation Styles */
         .navbar {
             position: fixed;
@@ -36,15 +51,13 @@
             padding: 1rem 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             z-index: 1000;
+            transition: background 0.3s ease, padding 0.3s ease;
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
         }
 
         .logo {
@@ -52,6 +65,11 @@
             font-weight: 700;
             color: var(--primary-color);
             text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--dark-color);
         }
 
         .nav-links {
@@ -75,7 +93,7 @@
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: var(--light-color);
             text-align: center;
-            padding: 8rem 2rem 6rem;
+            padding: 8rem 1rem 6rem;
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         }
 
@@ -87,6 +105,11 @@
         .header-content h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
         }
 
         .cta-buttons {
@@ -120,7 +143,7 @@
 
         /* About Section */
         #about {
-            padding: 6rem 1rem;
+            padding: 6rem 0;
             background: #f9f9f9;
         }
 
@@ -156,6 +179,11 @@
             background: var(--light-color);
             border-radius: 10px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
         }
 
         .skill-item i {
@@ -164,9 +192,41 @@
             margin-bottom: 1rem;
         }
 
+        /* Services Section */
+        #services {
+            padding: 6rem 0;
+            background: #f9f9f9;
+        }
+
+        .services-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
         /* Projects Section */
         #projects {
-            padding: 6rem 1rem;
+            padding: 6rem 0;
         }
 
         .projects-grid {
@@ -198,11 +258,38 @@
             padding: 1.5rem;
         }
 
+        /* Testimonials Section */
+        #testimonials {
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
         /* Contact Section */
         #contact {
             background: var(--primary-color);
             color: var(--light-color);
-            padding: 6rem 1rem;
+            padding: 6rem 0;
             text-align: center;
         }
 
@@ -230,18 +317,47 @@
         }
 
         @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+            
             .nav-links {
-                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                background: #fff;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.5s ease;
+            }
+
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .header-content h1 {
+                font-size: 2.5rem;
             }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <div class="nav-container">
+        <div class="container nav-container">
             <a href="#" class="logo">WR</a>
             <div class="nav-links">
                 <a href="#about">About</a>
+                <a href="#services">Services</a>
                 <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
             </div>
@@ -260,11 +376,10 @@
     </header>
 
     <section id="about">
-        <div class="about-content">
+        <div class="container about-content">
             <h2>About Me</h2>
             <img src="img/profile.jpg" alt="Profile Picture" class="profile-img">
-            <p>I am a passionate front-end developer with expertise in HTML, CSS, and JavaScript. 
-            I create engaging and responsive websites that provide excellent user experiences.</p>
+            <p>I am a passionate front-end developer with expertise in HTML, CSS, and JavaScript. I create engaging and responsive websites that provide excellent user experiences.</p>
             
             <div class="skills">
                 <div class="skill-item">
@@ -282,6 +397,29 @@
                 <div class="skill-item">
                     <i class="fab fa-react"></i>
                     <h3>React</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>My Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Web Development</h3>
+                    <p>Custom website development using modern technologies and best practices.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Responsive Design</h3>
+                    <p>Creating websites that look great and function well on all devices and screen sizes.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>Performance Optimization</h3>
+                    <p>Optimizing websites for speed, performance and better user experience.</p>
                 </div>
             </div>
         </div>
@@ -321,13 +459,34 @@
         </div>
     </section>
 
+    <section id="testimonials">
+        <div class="container">
+            <h2>What Clients Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <img src="/api/placeholder/80/80" alt="Client 1">
+                    <p>"Wahyu delivered an amazing website! He's a skilled developer and great to work with."</p>
+                    <h4>John Doe</h4>
+                    <p>CEO</p>
+                        <p>ABC Company</p>
+                </div>
+                <div class="testimonial-card">
+                    <img src="/api/placeholder/80/80" alt="Client 2"> 
+                    <p>"The website Wahyu built exceeded our expectations. Highly recommended!"</p>
+                    <h4>Jane Smith</h4>
+                    <p>Marketing Manager, XYZ Inc.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact">
         <div class="container">
             <h2>Get In Touch</h2>
             <p>Feel free to reach out for collaborations or just a friendly hello</p>
             <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/wahyuramadhani7"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/wahyu-ramadhani-a6b628262/"><i class="fab fa-linkedin"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fas fa-envelope"></i></a>
             </div>
@@ -351,11 +510,21 @@
 
         // Navbar background change on scroll
         window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
-                document.querySelector('.navbar').style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.padding = '0.5rem 0';
             } else {
-                document.querySelector('.navbar').style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.padding = '1rem 0';
             }
+        });
+
+        // Mobile menu toggle
+        const navLinks = document.querySelector('.nav-links');
+
+        document.querySelector('.nav-toggle').addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
     </script>
 </body>
