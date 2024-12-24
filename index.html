@@ -361,6 +361,43 @@
                 max-width: 400px;
                 margin: 0 auto;
             }
+            @keyframes fadeInUp {
+                  from {
+                      opacity: 0;
+                      transform: translateY(20px);
+                  }
+                  to {
+                      opacity: 1;
+                      transform: translateY(0);
+                  }
+              }
+      
+              h1, h2, h3, p, .btn, .skill-item, .service-card, .project-card, .testimonial-card {
+                  opacity: 0;
+                  animation: fadeInUp 1s ease forwards;
+              }
+      
+              h1 { animation-delay: 0.2s; }
+              h2 { animation-delay: 0.4s; }
+              p { animation-delay: 0.6s; }
+              .btn { animation-delay: 0.8s; }
+      
+              .skill-item:nth-child(1) { animation-delay: 0.2s; }
+              .skill-item:nth-child(2) { animation-delay: 0.4s; }
+              .skill-item:nth-child(3) { animation-delay: 0.6s; }
+              .skill-item:nth-child(4) { animation-delay: 0.8s; }
+      
+              .service-card:nth-child(1) { animation-delay: 0.2s; }
+              .service-card:nth-child(2) { animation-delay: 0.4s; }
+              .service-card:nth-child(3) { animation-delay: 0.6s; }
+      
+              .project-card:nth-child(1) { animation-delay: 0.2s; }
+              .project-card:nth-child(2) { animation-delay: 0.4s; }
+              .project-card:nth-child(3) { animation-delay: 0.6s; }
+      
+              .testimonial-card:nth-child(1) { animation-delay: 0.2s; }
+              .testimonial-card:nth-child(2) { animation-delay: 0.4s; }
+      
         }
     </style>
 </head>
