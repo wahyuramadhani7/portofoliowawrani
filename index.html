@@ -322,31 +322,44 @@
             }
             
             .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
+                position: fixed;
+                top: 4rem;
+                left: -100%;
+                width: 70%;
+                height: calc(100vh - 4rem);
                 flex-direction: column;
-                align-items: center;
-                background: #fff;
+                align-items: flex-start;
+                padding: 2rem;
+                background: var(--light-color);
                 box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-                transition: clip-path 0.5s ease;
+                transition: left 0.5s ease;
             }
 
             .nav-links.active {
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                left: 0;
             }
 
             .nav-links a {
+                margin: 1rem 0;
+            }
+
+            .nav-toggle {
                 display: block;
-                padding: 1rem;
-                width: 100%;
-                text-align: center;
+                font-size: 1.5rem;
+                cursor: pointer;
             }
 
             .header-content h1 {
                 font-size: 2.5rem;
+            }
+
+            .skills, .services-grid, .projects-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card, .testimonial-card {
+                max-width: 400px;
+                margin: 0 auto;
             }
         }
     </style>
@@ -522,9 +535,19 @@
 
         // Mobile menu toggle
         const navLinks = document.querySelector('.nav-links');
+        const navToggle = document.createElement('div');
+        navToggle.classList.add('nav-toggle');
+        navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        document.querySelector('.nav-container').appendChild(navToggle);
 
-        document.querySelector('.nav-toggle').addEventListener('click', () => {
+        navToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
         });
     </script>
 </body>
