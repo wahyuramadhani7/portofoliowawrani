@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front-end Developer Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #6c63ff, #40E0D0);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #6c63ff;
+        }
+        img {
+            max-width: 30%;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            padding: 4rem 1rem;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .project {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Front-end Developer Portfolio</h1>
+            <p>Wahyu Ramadhani</p>
+        </div>
+    </header>
+    
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <img src="img/profile.jpg" alt="Profile Picture">
+            <p>I am a passionate front-end developer with expertise in HTML, CSS, and JavaScript. 
+            I create engaging and responsive websites that provide excellent user experiences.</p>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects">
+                <div class="project">
+                    <img src="/api/placeholder/500/300" alt="Project 1">
+                    <h3>Project 1</h3>
+                    <p>Description of project 1 goes here.</p>
+                </div>
+                
+                <div class="project">
+                    <img src="/api/placeholder/500/300" alt="Project 2">
+                    <h3>Project 2</h3>
+                    <p>Description of project 2 goes here.</p>
+                </div>
+                
+                <div class="project">
+                    <img src="/api/placeholder/500/300" alt="Project 3">
+                    <h3>Project 3</h3>
+                    <p>Description of project 3 goes here.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add any necessary JavaScript here
+        console.log("Portfolio website loaded");
+    </script>
+</body>
+</html>
