@@ -219,8 +219,6 @@ header {
     flex-wrap: wrap;
     gap: 2rem;
     margin-top: 3rem;
-    position: relative;
-    overflow: hidden;
 }
 .skill-item {
     flex: 1;
@@ -232,7 +230,7 @@ header {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    animation: skillAnimation 20s linear infinite;
+    animation: skillAnimation 4s linear infinite;
 }
 .skill-item::before {
     content: '';
@@ -396,11 +394,11 @@ footer {
     }
 }
 @keyframes skillAnimation {
-    0% {
-        transform: translateX(-100%);
+    0%, 100% {
+        transform: translateY(0);
     }
-    100% {
-        transform: translateX(calc(200% + 4rem));
+    50% {
+        transform: translateY(-20px);
     }
 }
 /* Section Animation */
