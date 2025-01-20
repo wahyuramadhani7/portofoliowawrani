@@ -8,31 +8,26 @@
     --dark-color: #1F2937;
     --light-color: #F9FAFB;
 }
-
 /* Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 html {
     scroll-behavior: smooth;
 }
-
 body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: var(--dark-color);
     overflow-x: hidden;
 }
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
 }
-
 /* Loading Screen */
 .loading-screen {
     position: fixed;
@@ -47,7 +42,6 @@ body {
     z-index: 9999;
     animation: fadeOut 1s ease forwards 2s;
 }
-
 .loader {
     width: 50px;
     height: 50px;
@@ -56,7 +50,6 @@ body {
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
-
 /* Navigation */
 .navbar {
     position: fixed;
@@ -69,13 +62,11 @@ body {
     z-index: 1000;
     transition: all 0.3s ease;
 }
-
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
@@ -83,12 +74,10 @@ body {
     text-decoration: none;
     position: relative;
 }
-
 .nav-links {
     display: flex;
     gap: 2rem;
 }
-
 .nav-links a {
     text-decoration: none;
     color: var(--dark-color);
@@ -96,7 +85,6 @@ body {
     position: relative;
     padding: 0.5rem 1rem;
 }
-
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -108,11 +96,9 @@ body {
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
-
 .nav-links a:hover::after {
     transform: scaleX(1);
 }
-
 /* Header */
 header {
     background: var(--gradient-1);
@@ -122,28 +108,24 @@ header {
     position: relative;
     overflow: hidden;
 }
-
 .header-content {
     max-width: 800px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
 }
-
 .header-content h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
     animation: fadeInDown 1s ease;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
-
 .header-content p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     animation: fadeInUp 1s ease;
     opacity: 0.9;
 }
-
 /* Mouse Scroll Animation */
 .mouse-scroll {
     position: absolute;
@@ -152,7 +134,6 @@ header {
     transform: translateX(-50%);
     animation: bounce 2s infinite;
 }
-
 .mouse {
     width: 30px;
     height: 50px;
@@ -160,7 +141,6 @@ header {
     border-radius: 15px;
     position: relative;
 }
-
 .wheel {
     width: 4px;
     height: 8px;
@@ -172,7 +152,6 @@ header {
     border-radius: 2px;
     animation: mouseWheel 1.5s infinite;
 }
-
 /* Buttons */
 .btn {
     display: inline-block;
@@ -186,7 +165,6 @@ header {
     overflow: hidden;
     z-index: 1;
 }
-
 .btn::before {
     content: '';
     position: absolute;
@@ -199,34 +177,28 @@ header {
     transition: transform 0.3s ease;
     z-index: -1;
 }
-
 .btn:hover::before {
     transform: translateX(0);
 }
-
 .btn-primary {
     background: var(--light-color);
     color: var(--primary-color);
 }
-
 .btn-secondary {
     border: 2px solid var(--light-color);
     color: var(--light-color);
 }
-
 /* About Section */
 #about {
     padding: 6rem 0;
     background: #f9f9f9;
 }
-
 .about-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
-
 .profile-img {
     width: 250px;
     height: 250px;
@@ -237,11 +209,9 @@ header {
     border: 5px solid var(--light-color);
     transition: transform 0.3s ease;
 }
-
 .profile-img:hover {
     transform: scale(1.05);
 }
-
 /* Skills */
 .skills {
     display: flex;
@@ -249,8 +219,9 @@ header {
     flex-wrap: wrap;
     gap: 2rem;
     margin-top: 3rem;
+    position: relative;
+    overflow: hidden;
 }
-
 .skill-item {
     flex: 1;
     min-width: 200px;
@@ -261,8 +232,8 @@ header {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    animation: skillAnimation 20s linear infinite;
 }
-
 .skill-item::before {
     content: '';
     position: absolute;
@@ -275,15 +246,12 @@ header {
     transition: opacity 0.3s ease;
     z-index: 0;
 }
-
 .skill-item:hover {
     transform: translateY(-10px);
 }
-
 .skill-item:hover::before {
     opacity: 0.1;
 }
-
 .skill-item i {
     font-size: 3rem;
     color: var(--primary-color);
@@ -291,7 +259,6 @@ header {
     position: relative;
     z-index: 1;
 }
-
 .skill-progress {
     width: 100%;
     height: 8px;
@@ -300,7 +267,6 @@ header {
     overflow: hidden;
     margin-top: 1rem;
 }
-
 .progress-bar {
     height: 100%;
     background: var(--gradient-1);
@@ -309,68 +275,17 @@ header {
     transform-origin: left;
     animation: progressAnimation 1s ease forwards;
 }
-
-/* Services Section */
-#services {
-    padding: 6rem 0;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.service-card {
-    background: var(--light-color);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-1);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-}
-
-.service-card:hover::before {
-    opacity: 0.1;
-}
-
-.service-card i {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-}
-
 /* Projects Section */
 #projects {
     padding: 6rem 0;
     background: #f9f9f9;
 }
-
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
-
 .project-card {
     background: var(--light-color);
     border-radius: 15px;
@@ -379,24 +294,20 @@ header {
     transition: all 0.3s ease;
     position: relative;
 }
-
 .project-img {
     width: 100%;
     height: 200px;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
-
 .project-card:hover .project-img {
     transform: scale(1.1);
 }
-
 .project-content {
     padding: 1.5rem;
     position: relative;
     background: var(--light-color);
 }
-
 /* Contact Section */
 #contact {
     padding: 6rem 0;
@@ -404,25 +315,21 @@ header {
     color: var(--light-color);
     text-align: center;
 }
-
 .social-links {
     display: flex;
     justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
 }
-
 .social-links a {
     color: var(--light-color);
     font-size: 2rem;
     transition: all 0.3s ease;
 }
-
 .social-links a:hover {
     transform: translateY(-5px) scale(1.1);
     color: var(--accent-color);
 }
-
 /* Footer */
 footer {
     background: var(--dark-color);
@@ -430,7 +337,6 @@ footer {
     text-align: center;
     padding: 2rem;
 }
-
 /* Animations */
 @keyframes fadeInDown {
     from {
@@ -442,7 +348,6 @@ footer {
         transform: translateY(0);
     }
 }
-
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -453,20 +358,17 @@ footer {
         transform: translateY(0);
     }
 }
-
 @keyframes spin {
     to {
         transform: rotate(360deg);
     }
 }
-
 @keyframes fadeOut {
     to {
         opacity: 0;
         visibility: hidden;
     }
 }
-
 @keyframes mouseWheel {
     0% {
         opacity: 1;
@@ -477,7 +379,6 @@ footer {
         transform: translateX(-50%) translateY(10px);
     }
 }
-
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
@@ -489,25 +390,29 @@ footer {
         transform: translateY(-5px);
     }
 }
-
 @keyframes progressAnimation {
     to {
         transform: scaleX(1);
     }
 }
-
+@keyframes skillAnimation {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(calc(200% + 4rem));
+    }
+}
 /* Section Animation */
 .section-animate {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease;
 }
-
 .section-animate.active {
     opacity: 1;
     transform: translateY(0);
 }
-
 /* Media Queries */
 @media (max-width: 1024px) {
     .services-grid,
@@ -515,7 +420,6 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-
 @media (max-width: 768px) {
     .header-content h1 {
         font-size: 2.5rem;
