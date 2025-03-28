@@ -391,3 +391,303 @@ window.addEventListener('scroll', function() {
         }
     });
 });
+
+// ===== PERBAIKAN UNTUK RESPONSIVITAS =====
+
+// Perbaikan untuk perilaku navigasi di mobile
+document.addEventListener('DOMContentLoaded', function() {
+    // Deteksi perangkat mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    // Penyesuaian untuk perangkat mobile
+    if (isMobile) {
+        // Kurangi durasi animasi AOS di mobile
+        AOS.init({
+            duration: 600,
+            once: true,
+            offset: 50,
+            easing: 'ease-in-out',
+            delay: 50
+        });
+        
+        // Nonaktifkan efek parallax di mobile untuk performa lebih baik
+        document.removeEventListener('mousemove', parallax);
+    }
+    
+    // Perbaikan menu navigasi di mobile
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Tunggu animasi scroll selesai sebelum menutup menu
+            setTimeout(() => {
+                document.querySelector('.nav-links').classList.remove('active');
+                document.querySelector('.hamburger').classList.remove('active');
+            }, 300);
+        });
+    });
+    
+    // Perbaikan untuk menangani orientasi layar berubah
+    window.addEventListener('orientationchange', function() {
+        // Re-init AOS untuk menangani perubahan orientasi
+        setTimeout(() => {
+            AOS.refresh();
+        }, 500);
+        
+        // Tutup menu mobile jika terbuka
+        document.querySelector('.nav-links').classList.remove('active');
+        document.querySelector('.hamburger').classList.remove('active');
+    });
+    
+    // Perbaikan untuk menangani ukuran font di header berdasarkan lebar layar
+    function adjustHeaderFontSize() {
+        const glitchEffect = document.querySelector('.glitch-effect');
+        const headerSubtitle = document.querySelector('.header-subtitle');
+        
+        if (!glitchEffect || !headerSubtitle) return;
+        
+        const viewportWidth = window.innerWidth;
+        
+        if (viewportWidth < 375) {
+            glitchEffect.style.fontSize = '2rem';
+            headerSubtitle.style.fontSize = '1.2rem';
+        } else if (viewportWidth < 576) {
+            glitchEffect.style.fontSize = '2.5rem';
+            headerSubtitle.style.fontSize = '1.3rem';
+        } else if (viewportWidth < 768) {
+            glitchEffect.style.fontSize = '3rem';
+            headerSubtitle.style.fontSize = '1.5rem';
+        } else if (viewportWidth < 1080) {
+            glitchEffect.style.fontSize = '3.8rem';
+            headerSubtitle.style.fontSize = '1.8rem';
+        } else {
+            glitchEffect.style.fontSize = '4.5rem';
+            headerSubtitle.style.fontSize = '2rem';
+        }
+    }
+    
+    // Panggil fungsi saat awal load dan resize
+    window.addEventListener('resize', adjustHeaderFontSize);
+    adjustHeaderFontSize();
+    
+    // Perbaikan untuk viewport height di mobile browsers (Safari iOS issue)
+    function setMobileViewportHeight() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    window.addEventListener('resize', setMobileViewportHeight);
+    setMobileViewportHeight();
+    
+    // Perbaikan untuk performance di mobile
+    if (isMobile) {
+        // Kurangi jumlah partikel untuk performa lebih baik di mobile
+        if (typeof particlesJS !== 'undefined') {
+            particlesJS('particles-js', {
+                particles: {
+                    number: {
+                        value: 20, // Kurangi jumlah partikel
+                    },
+                    size: {
+                        value: 2,
+                    },
+                    move: {
+                        speed: 1
+                    },
+                    line_linked: {
+                        distance: 100,
+                        opacity: 0.15
+                    }
+                },
+                interactivity: {
+                    events: {
+                        onhover: {
+                            enable: false
+                        }
+                    }
+                }
+            });
+        }
+    }
+});
+
+// Perbaikan untuk scrolling smooth di semua browser
+(function() {
+    // Jika browser tidak mendukung scroll behavior
+    if (typeof window.scrollTo !== 'function' || !('scrollBehavior' in document.documentElement.style)) {
+        // Implementasi scrolling smooth manual
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                    
+                    // Smooth scroll polyfill
+                    const startPosition = window.pageYOffset;
+                    const distance = targetPosition - startPosition;
+                    const duration = 1000;
+                    let start = null;
+                    
+                    window.requestAnimationFrame(step);
+                    
+                    function step(timestamp) {
+                        if (!start) start = timestamp;
+                        const progress = timestamp - start;
+                        
+                        window.scrollTo(0, easeInOutCubic(progress, startPosition, distance, duration));
+                        
+                        if (progress < duration) window.requestAnimationFrame(step);
+                    }
+                    
+                    // Easing function
+                    function easeInOutCubic(t, b, c, d) {
+                        t /= d/2;
+                        if (t < 1) return c/2*t*t*t + b;
+                        t -= 2;
+                        return c/2*(t*t*t + 2) + b;
+                    }
+                }
+            });
+        });
+    }
+})();
+
+// Perbaikan gambar lazy loading
+document.addEventListener('DOMContentLoaded', function() {
+    // Cek apakah browser mendukung lazy loading
+    if ('loading' in HTMLImageElement.prototype) {
+        // Browser mendukung lazy loading
+        document.querySelectorAll('img').forEach(img => {
+            img.setAttribute('loading', 'lazy');
+        });
+    } else {
+        // Fallback untuk browser yang tidak mendukung native lazy loading
+        // Bisa diimplementasikan dengan IntersectionObserver
+        const imgObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const src = img.getAttribute('data-src');
+                    
+                    if (src) {
+                        img.setAttribute('src', src);
+                        img.removeAttribute('data-src');
+                    }
+                    
+                    observer.unobserve(img);
+                }
+            });
+        });
+        
+        // Ubah src ke data-src dan observe semua gambar
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imgObserver.observe(img);
+        });
+    }
+});
+
+// Perbaikan untuk focus trap di menu mobile
+function trapFocus(element) {
+    const focusableEls = element.querySelectorAll('a[href]:not([disabled]), button:not([disabled])');
+    const firstFocusableEl = focusableEls[0];
+    const lastFocusableEl = focusableEls[focusableEls.length - 1];
+    
+    element.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+            if (e.shiftKey && document.activeElement === firstFocusableEl) {
+                lastFocusableEl.focus();
+                e.preventDefault();
+            } else if (!e.shiftKey && document.activeElement === lastFocusableEl) {
+                firstFocusableEl.focus();
+                e.preventDefault();
+            }
+        } else if (e.key === 'Escape') {
+            // Close mobile menu on Escape key
+            document.querySelector('.nav-links').classList.remove('active');
+            document.querySelector('.hamburger').classList.remove('active');
+        }
+    });
+}
+
+// Apply focus trap to mobile menu when open
+document.querySelector('.nav-toggle').addEventListener('click', function() {
+    if (document.querySelector('.nav-links').classList.contains('active')) {
+        trapFocus(document.querySelector('.nav-links'));
+        // Set focus to first item in menu
+        setTimeout(() => {
+            const firstMenuItem = document.querySelector('.nav-links a');
+            if (firstMenuItem) firstMenuItem.focus();
+        }, 100);
+    }
+});
+
+// Perbaikan throttle/debounce untuk event listeners yang sering terpanggil
+function debounce(func, wait = 20, immediate = true) {
+    let timeout;
+    return function() {
+        const context = this, args = arguments;
+        const later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        const callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+}
+
+// Terapkan debounce ke event resize
+const debouncedResize = debounce(function() {
+    // Refresh AOS
+    if (typeof AOS !== 'undefined') {
+        AOS.refresh();
+    }
+    
+    // Update viewport height variable
+    setMobileViewportHeight();
+    
+    // Adjust font sizes
+    adjustHeaderFontSize();
+}, 100);
+
+window.addEventListener('resize', debouncedResize);
+
+// Helper function untuk mobile viewport height
+function setMobileViewportHeight() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+// Helper function untuk header font size
+function adjustHeaderFontSize() {
+    const glitchEffect = document.querySelector('.glitch-effect');
+    const headerSubtitle = document.querySelector('.header-subtitle');
+    
+    if (!glitchEffect || !headerSubtitle) return;
+    
+    const viewportWidth = window.innerWidth;
+    
+    if (viewportWidth < 375) {
+        glitchEffect.style.fontSize = '2rem';
+        headerSubtitle.style.fontSize = '1.2rem';
+    } else if (viewportWidth < 576) {
+        glitchEffect.style.fontSize = '2.5rem';
+        headerSubtitle.style.fontSize = '1.3rem';
+    } else if (viewportWidth < 768) {
+        glitchEffect.style.fontSize = '3rem';
+        headerSubtitle.style.fontSize = '1.5rem';
+    } else if (viewportWidth < 1080) {
+        glitchEffect.style.fontSize = '3.8rem';
+        headerSubtitle.style.fontSize = '1.8rem';
+    } else {
+        glitchEffect.style.fontSize = '4.5rem';
+        headerSubtitle.style.fontSize = '2rem';
+    }
+}

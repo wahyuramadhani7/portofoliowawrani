@@ -1120,18 +1120,9 @@ footer {
     }
 }
 
-/* Media Queries */
-@media screen and (max-width: 1080px) {
-    .featured-project .project-content {
-        grid-column: 1 / 9;
-    }
-    
-    .featured-project .project-image {
-        grid-column: 6 / -1;
-    }
-    
-    .featured-project.reverse .project {
-        /* Media Queries (Continued) */
+/* Perbaikan Media Queries */
+
+/* Tablet dan Perangkat Menengah (768px - 1080px) */
 @media screen and (max-width: 1080px) {
     .featured-project .project-content {
         grid-column: 1 / 9;
@@ -1148,14 +1139,24 @@ footer {
     .featured-project.reverse .project-image {
         grid-column: 1 / 7;
     }
+
+    .about-content {
+        gap: 2rem;
+    }
+    
+    .glitch-effect {
+        font-size: 3.8rem;
+    }
 }
 
+/* Mobile Landscape dan Tablet Kecil (576px - 768px) */
 @media screen and (max-width: 768px) {
+    /* Perbaikan navigasi */
     .nav-links {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 75%;
+        width: 65%;
         height: 100vh;
         background: var(--card-bg);
         flex-direction: column;
@@ -1177,23 +1178,35 @@ footer {
         z-index: 10;
     }
     
+    /* Perbaikan header */
     .glitch-effect {
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
     
     .header-subtitle {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
     
+    .header-desc {
+        font-size: 1rem;
+    }
+    
+    /* Perbaikan section about */
     .about-content {
         grid-template-columns: 1fr;
+        gap: 3rem;
     }
     
     .about-image-container {
         order: -1;
-        margin-bottom: 2rem;
+        margin: 0 auto 2rem;
     }
     
+    .tech-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Perbaikan project section */
     .project-item {
         display: block;
     }
@@ -1211,41 +1224,266 @@ footer {
     
     .projects-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    /* Perbaikan skill section */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    /* Perbaikan spacing */
+    .section {
+        padding: 6rem 0;
+    }
+    
+    .section-header {
+        margin-bottom: 3rem;
     }
 }
 
-@media screen and (max-width: 480px) {
-    .section {
-        padding: 5rem 0;
+/* Mobile (320px - 576px) */
+@media screen and (max-width: 576px) {
+    /* Container padding */
+    .container {
+        padding: 0 1.5rem;
     }
     
+    /* Header content */
     .glitch-effect {
         font-size: 2.5rem;
     }
     
     .header-subtitle {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     
     .header-desc {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
     
     .header-buttons {
         flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
     }
     
+    .header-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Section title */
     .section-title {
         font-size: 1.5rem;
     }
     
-    .contact-title {
-        font-size: 2rem;
+    /* Skills section */
+    .skills-grid {
+        grid-template-columns: 1fr;
     }
     
+    /* Projects grid */
     .projects-grid {
         grid-template-columns: 1fr;
     }
+    
+    /* Project card */
+    .project-card {
+        padding: 1.5rem;
+    }
+    
+    /* Contact section */
+    .contact-title {
+        font-size: 1.8rem;
+    }
+    
+    .contact-description {
+        font-size: 0.95rem;
+    }
+    
+    .social-links {
+        gap: 1.5rem;
+    }
+    
+    /* Section spacing */
+    .section {
+        padding: 5rem 0;
+    }
+    
+    .featured-projects {
+        gap: 4rem;
+        margin-bottom: 4rem;
+    }
+    
+    /* Footer */
+    .footer-content {
+        gap: 0.75rem;
+    }
 }
+
+/* Mobile Kecil (320px - 375px) */
+@media screen and (max-width: 375px) {
+    /* Logo */
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    /* Header */
+    .glitch-effect {
+        font-size: 2rem;
+    }
+    
+    .header-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    /* Section title */
+    .section-number {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.3rem;
+    }
+    
+    /* Project title */
+    .project-title {
+        font-size: 1.5rem;
+    }
+    
+    /* Contact section */
+    .contact-title {
+        font-size: 1.6rem;
+    }
 }
+
+/* Perbaikan Dasar untuk Responsif */
+
+/* Gambar responsif */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Tabel responsif */
+table {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+}
+
+/* Perbaikan untuk navbar fixed & scroll padding */
+html {
+    scroll-padding-top: 80px; /* Sesuaikan dengan tinggi navbar */
+}
+
+/* Perbaikan layout section */
+.section {
+    overflow: hidden; /* Mencegah konten melebar */
+}
+
+/* Perbaikan untuk cursor follower di mobile */
+@media (hover: none) and (pointer: coarse) {
+    .cursor-follower {
+        display: none;
+    }
+}
+
+/* Perbaikan untuk interaksi sentuh */
+@media (hover: none) {
+    .project-card:hover,
+    .skill-card:hover,
+    .btn:hover,
+    .about-image-wrapper:hover .profile-img {
+        transform: none;
+    }
+    
+    .project-card:active,
+    .skill-card:active,
+    .btn:active {
+        transform: translateY(-3px);
+    }
+    
+    .about-image-wrapper:active .profile-img {
+        filter: none;
+        mix-blend-mode: normal;
+    }
+}
+
+/* Perbaikan kontras dan keterbacaan */
+@media screen and (max-width: 768px) {
+    .text-secondary {
+        color: #a8b2d1; /* Sedikit lebih terang untuk keterbacaan */
+    }
+    
+    .project-description {
+        padding: 1.2rem;
+    }
+    
+    .scroll-indicator {
+        display: none; /* Sembunyikan di mobile untuk menghemat ruang */
+    }
+}
+
+/* Fix untuk featured project di mobile */
+@media screen and (max-width: 768px) {
+    .featured-project .project-image {
+        margin-bottom: 1.5rem;
+    }
+    
+    .featured-project.reverse .project-image {
+        margin-bottom: 1.5rem;
+        order: -1;
+    }
+    
+    .featured-project .project-content,
+    .featured-project.reverse .project-content {
+        background: rgba(17, 34, 64, 0.7);
+        padding: 1.5rem;
+        border-radius: 5px;
+        z-index: 2;
+    }
+}
+
+/* Optimasi font-size untuk berbagai layar */
+html {
+    font-size: 16px; /* Base font size */
+}
+
+@media screen and (max-width: 1200px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+/* Mencegah konten berkibar ketika navbar muncul/hilang */
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Fix untuk iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    .section {
+        background-attachment: scroll; /* Mencegah masalah di iOS */
+    }
+    
+    input, 
+    textarea {
+        font-size: 16px; /* Mencegah zoom pada fokus di iOS */
+    }
 }
