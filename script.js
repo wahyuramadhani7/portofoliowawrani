@@ -152,9 +152,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const options = {
         strings: [
             'Full Stack Developer',
-            'Web Designer',
+            'frontend developer',
             'Mobile Developer',
-            'UI/UX Enthusiast'
+            'backend developer'
         ],
         typeSpeed: 50,
         backSpeed: 30,
