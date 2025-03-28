@@ -3,212 +3,228 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Hello - I'm Wahyu Ramadhani</title>
-   <meta name="description" content="Portfolio website of Wahyu Ramadhani, a passionate front-end developer with expertise in HTML, CSS, JavaScript and React. View my projects and get in touch for collaborations.">
+   <title>Wahyu Ramadhani | Software Developer</title>
+   <meta name="description" content="Portfolio website of Wahyu Ramadhani, a passionate full-stack developer with expertise in web and mobile development. View my projects and get in touch for collaborations.">
    <!-- Font Awesome CSS -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
    <!-- Google Fonts -->
-   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
    <!-- AOS CSS -->
    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
    <!-- Custom CSS -->
    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+   <!-- Cursor Follower -->
+   <div class="cursor-follower"></div>
+   
    <!-- Loading Screen -->
    <div class="loading-screen">
-       <div class="loader"></div>
+       <div class="loader">
+           <span class="loader-text">Loading</span>
+           <div class="loader-bar"></div>
+       </div>
    </div>
 
    <!-- Navigation -->
    <nav class="navbar">
        <div class="container nav-container">
-           <a href="#" class="logo">WR</a>
+           <a href="#" class="logo">
+               <span class="logo-text">WR</span>
+               <span class="logo-dot"></span>
+           </a>
            <div class="nav-links">
-               <a href="#about" class="nav-link">About</a>
-               <a href="#projects" class="nav-link">Projects</a>
-               <a href="#contact" class="nav-link">Contact</a>
+               <a href="#about" class="nav-link"><span>01.</span> About</a>
+               <a href="#skills" class="nav-link"><span>02.</span> Skills</a>
+               <a href="#projects" class="nav-link"><span>03.</span> Projects</a>
+               <a href="#contact" class="nav-link"><span>04.</span> Contact</a>
+               <a href="#" class="nav-link resume-link">Resume <i class="fas fa-download"></i></a>
            </div>
            <div class="nav-toggle">
-               <i class="fas fa-bars"></i>
+               <div class="hamburger">
+                   <span></span>
+                   <span></span>
+                   <span></span>
+               </div>
            </div>
        </div>
    </nav>
 
    <!-- Header Section -->
    <header class="animated-header">
+       <div class="particles-container" id="particles-js"></div>
        <div class="header-content">
-           <h1 class="glitch" data-text="WELCOME MY PORTFOLIO">Hello</h1>
-           <p class="typing-text">I am Wahyu Ramadhani</p>
-           <div class="header-buttons">
-               <a href="#contact" class="btn btn-primary">Get in Touch</a>
-               <a href="#projects" class="btn btn-secondary">View Work</a>
+           <div class="header-intro" data-aos="fade-up" data-aos-delay="300">
+               <span class="greeting">Hi there, I'm</span>
+           </div>
+           <h1 class="glitch-effect" data-text="Wahyu Ramadhani">Wahyu Ramadhani</h1>
+           <div class="header-subtitle" data-aos="fade-up" data-aos-delay="600">
+               <span class="typing-text"></span>
+           </div>
+           <p class="header-desc" data-aos="fade-up" data-aos-delay="900">
+               I'm a software developer specializing in building exceptional digital experiences.
+               Currently focused on creating accessible, human-centered products.
+           </p>
+           <div class="header-buttons" data-aos="fade-up" data-aos-delay="1200">
+               <a href="#projects" class="btn btn-primary">View My Work</a>
+               <a href="#contact" class="btn btn-secondary">Get In Touch</a>
            </div>
        </div>
-       <div class="mouse-scroll">
+       <div class="scroll-indicator">
            <div class="mouse">
                <div class="wheel"></div>
            </div>
+           <div class="scroll-text">Scroll Down</div>
        </div>
    </header>
 
    <!-- About Section -->
-   <section id="about" class="section-animate">
-       <div class="container about-content">
-           <h2 class="section-title">About Me</h2>
-           <div class="about-grid">
-               <div class="about-image" data-aos="fade-right">
-                   <img src="img/profile.jpg" alt="Profile Picture" class="profile-img">
-               </div>
-               <div class="about-text" data-aos="fade-left">
-                   <p>I am a Computer Engineering student at Diponegoro University, driven by a deep curiosity about technology and digital innovation. With a passion for exploring and developing creative solutions, I not only study hardware and software but also strive to make a tangible impact through innovative projects. With a bright outlook on the future, I am committed to continuously growing and contributing to the ever-evolving world of technology.</p>
-               </div>
+   <section id="about" class="section">
+       <div class="container">
+           <div class="section-header">
+               <span class="section-number">01.</span>
+               <h2 class="section-title">About Me</h2>
+               <div class="section-line"></div>
            </div>
            
-           <div class="skills">
-               <div class="skills-track">
-                   <div class="skill-item">
-                       <i class="fab fa-html5"></i>
-                       <h3>HTML5</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 90%"></div>
-                       </div>
+           <div class="about-content">
+               <div class="about-image-container" data-aos="fade-right">
+                   <div class="about-image-wrapper">
+                       <img src="img/profile.jpg" alt="Wahyu Ramadhani" class="profile-img">
+                       <div class="image-border"></div>
                    </div>
-                   <div class="skill-item">
-                       <i class="fab fa-css3-alt"></i>
-                       <h3>CSS3</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 85%"></div>
+               </div>
+               
+               <div class="about-text" data-aos="fade-left">
+                   <p>Hello! I'm Wahyu, a Computer Engineering student at Diponegoro University with a passion for creating things that live on the internet.</p>
+                   
+                   <p>My interest in web development started back in 2020 when I decided to try customizing WordPress themes — turns out hacking together custom CSS taught me a lot about HTML & CSS!</p>
+                   
+                   <p>Since then, I've been fortunate to build various web applications, mobile apps, and contribute to meaningful projects. My main focus these days is building accessible, inclusive products and digital experiences.</p>
+                   
+                   <p>Here are a few technologies I've been working with recently:</p>
+                   
+                   <ul class="tech-list">
+                       <li><i class="fas fa-chevron-right"></i> JavaScript (ES6+)</li>
+                       <li><i class="fas fa-chevron-right"></i> React</li>
+                       <li><i class="fas fa-chevron-right"></i> Laravel</li>
+                       <li><i class="fas fa-chevron-right"></i> Flutter</li>
+                       <li><i class="fas fa-chevron-right"></i> Python</li>
+                       <li><i class="fas fa-chevron-right"></i> Node.js</li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- Skills Section -->
+   <section id="skills" class="section">
+       <div class="container">
+           <div class="section-header">
+               <span class="section-number">02.</span>
+               <h2 class="section-title">Skills & Technologies</h2>
+               <div class="section-line"></div>
+           </div>
+           
+           <div class="skills-container">
+               <div class="skills-category" data-aos="fade-up">
+                   <h3>Frontend</h3>
+                   <div class="skills-grid">
+                       <div class="skill-card">
+                           <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                           <h4>HTML5</h4>
+                           <div class="skill-level">
+                               <div class="skill-progress" style="width: 90%"></div>
+                           </div>
                        </div>
-                   </div>
-                   <div class="skill-item">
-                       <i class="fab fa-js"></i>
-                       <h3>JavaScript</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 80%"></div>
+                       <div class="skill-card">
+                           <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+                           <h4>CSS3</h4>
+                           <div class="skill-level">
+                               <div class="skill-progress" style="width: 85%"></div>
+                           </div>
                        </div>
-                   </div>
-                   <div class="skill-item">
-                       <i class="fab fa-react"></i>
-                       <h3>React</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 75%"></div>
+                       <div class="skill-card">
+                           <div class="skill-icon"><i class="fab fa-js"></i></div>
+                           <h4>JavaScript</h4>
+                           <div class="skill-level">
+                               <div class="skill-progress" style="width: 80%"></div>
+                           </div>
                        </div>
-                   </div>
-                   <div class="skill-item">
-                       <i class="fab fa-laravel"></i>
-                       <h3>Laravel</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 70%"></div>
-                       </div>
-                   </div>
-                   <div class="skill-item">
-                       <i class="fab fa-python"></i>
-                       <h3>Python</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 75%"></div>
-                       </div>
-                   </div>
-                   <div class="skill-item">
-                       <i class="fab fa-java"></i>
-                       <h3>Java</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 70%"></div>
-                       </div>
-                   </div>
-                   <div class="skill-item">
-                       <i class="fas fa-code"></i>
-                       <h3>Flutter</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 65%"></div>
-                       </div>
-                   </div>
-                   <div class="skill-item">
-                       <i class="fab fa-android"></i>
-                       <h3>Kotlin</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 60%"></div>
-                       </div>
-                   </div>
-                   <div class="skill-item">
-                       <i class="fab fa-php"></i>
-                       <h3>CodeIgniter4</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 65%"></div>
+                       <div class="skill-card">
+                           <div class="skill-icon"><i class="fab fa-react"></i></div>
+                           <h4>React</h4>
+                           <div class="skill-level">
+                               <div class="skill-progress" style="width: 75%"></div>
+                           </div>
                        </div>
                    </div>
                </div>
-               <!-- Duplicate skills-track -->
-               <div class="skills-track-2">
-                   <!-- Duplicate all skill items exactly the same as above -->
-                   <div class="skill-item">
-                       <i class="fab fa-html5"></i>
-                       <h3>HTML5</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 90%"></div>
+               
+               <div class="skills-category" data-aos="fade-up" data-aos-delay="200">
+                   <h3>Backend</h3>
+                   <div class="skills-grid">
+                       <div class="skill-card">
+                           <div class="skill-icon"><i class="fab fa-laravel"></i></div>
+                           <h4>Laravel</h4>
+                           <div class="skill-level">
+                               <div class="skill-progress" style="width: 70%"></div>
+                           </div>
+                       </div>
+                       <div class="skill-card">
+                           <div class="skill-icon"><i class="fab fa-php"></i></div>
+                           <h4>CodeIgniter4</h4>
+                           <div class="skill-level">
+                               <div class="skill-progress" style="width: 65%"></div>
+                           </div>
+                       </div>
+                       <div class="skill-card">
+                           <div class="skill-icon"><i class="fab fa-python"></i></div>
+                           <h4>Python</h4>
+                           <div class="skill-level">
+                               <div class="skill-progress" style="width: 75%"></div>
+                           </div>
+                       </div>
+                       <div class="skill-card">
+                           <div class="skill-icon"><i class="fas fa-database"></i></div>
+                           <h4>SQL/NoSQL</h4>
+                           <div class="skill-level">
+                               <div class="skill-progress" style="width: 75%"></div>
+                           </div>
                        </div>
                    </div>
-                   <div class="skill-item">
-                       <i class="fab fa-css3-alt"></i>
-                       <h3>CSS3</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 85%"></div>
+               </div>
+               
+               <div class="skills-category" data-aos="fade-up" data-aos-delay="400">
+                   <h3>Mobile Development</h3>
+                   <div class="skills-grid">
+                       <div class="skill-card">
+                           <div class="skill-icon"><i class="fas fa-code"></i></div>
+                           <h4>Flutter</h4>
+                           <div class="skill-level">
+                               <div class="skill-progress" style="width: 65%"></div>
+                           </div>
                        </div>
-                   </div>
-                   <div class="skill-item">
-                       <i class="fab fa-js"></i>
-                       <h3>JavaScript</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 80%"></div>
+                       <div class="skill-card">
+                           <div class="skill-icon"><i class="fab fa-android"></i></div>
+                           <h4>Kotlin</h4>
+                           <div class="skill-level">
+                               <div class="skill-progress" style="width: 60%"></div>
+                           </div>
                        </div>
-                   </div>
-                   <div class="skill-item">
-                       <i class="fab fa-react"></i>
-                       <h3>React</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 75%"></div>
+                       <div class="skill-card">
+                           <div class="skill-icon"><i class="fab fa-java"></i></div>
+                           <h4>Java</h4>
+                           <div class="skill-level">
+                               <div class="skill-progress" style="width: 70%"></div>
+                           </div>
                        </div>
-                   </div>
-                   <div class="skill-item">
-                       <i class="fab fa-laravel"></i>
-                       <h3>Laravel</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 70%"></div>
-                       </div>
-                   </div>
-                   <div class="skill-item">
-                       <i class="fab fa-python"></i>
-                       <h3>Python</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 75%"></div>
-                       </div>
-                   </div>
-                   <div class="skill-item">
-                       <i class="fab fa-java"></i>
-                       <h3>Java</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 70%"></div>
-                       </div>
-                   </div>
-                   <div class="skill-item">
-                       <i class="fas fa-code"></i>
-                       <h3>Flutter</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 65%"></div>
-                       </div>
-                   </div>
-                   <div class="skill-item">
-                       <i class="fab fa-android"></i>
-                       <h3>Kotlin</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 60%"></div>
-                       </div>
-                   </div>
-                   <div class="skill-item">
-                       <i class="fab fa-php"></i>
-                       <h3>CodeIgniter4</h3>
-                       <div class="skill-progress">
-                           <div class="progress-bar" style="width: 65%"></div>
+                       <div class="skill-card">
+                           <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
+                           <h4>React Native</h4>
+                           <div class="skill-level">
+                               <div class="skill-progress" style="width: 60%"></div>
+                           </div>
                        </div>
                    </div>
                </div>
@@ -217,84 +233,227 @@
    </section>
 
    <!-- Projects Section -->
-   <section id="projects" class="section-animate">
+   <section id="projects" class="section">
        <div class="container">
-           <h2 class="section-title">My Projects</h2>
-           <div class="projects-grid">
-               <div class="project-card" data-aos="fade-up">
-                   <img src="img/project1.png" alt="Project 1" class="project-img">
+           <div class="section-header">
+               <span class="section-number">03.</span>
+               <h2 class="section-title">My Projects</h2>
+               <div class="section-line"></div>
+           </div>
+           
+           <div class="featured-projects">
+               <div class="project-item featured-project" data-aos="fade-up">
                    <div class="project-content">
-                       <h3>Project 1</h3>
-                       <p>Website Dokumen TOR PT SUCOFINDO Cabang Semarang.</p>
-                       <a href="#" class="btn btn-primary">View Project</a>
+                       <div class="project-label">Featured Project</div>
+                       <h3 class="project-title">SUCOFINDO Document System</h3>
+                       <div class="project-description">
+                           <p>A comprehensive document management system built for PT SUCOFINDO's Semarang branch. The system handles TOR documents with advanced search capabilities, role-based access control, and automated workflow management.</p>
+                       </div>
+                       <ul class="project-tech-list">
+                           <li>Laravel</li>
+                           <li>MySQL</li>
+                           <li>JavaScript</li>
+                           <li>Bootstrap</li>
+                       </ul>
+                       <div class="project-links">
+                           <a href="#" class="project-link" aria-label="External Link" rel="noopener noreferrer" target="_blank">
+                               <i class="fas fa-external-link-alt"></i>
+                           </a>
+                       </div>
+                   </div>
+                   <div class="project-image">
+                       <img src="img/project1.png" alt="SUCOFINDO Document System">
                    </div>
                </div>
                
-               <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                   <img src="img/masjid2.jpg" alt="Project 2" class="project-img">
+               <div class="project-item featured-project reverse" data-aos="fade-up">
                    <div class="project-content">
-                       <h3>Project 2</h3>
-                       <p>Website Masjid.</p>
-                       <a href="https://masjid-ulil-albab.vercel.app/" class="btn btn-primary">View Project</a>
+                       <div class="project-label">Featured Project</div>
+                       <h3 class="project-title">Masjid Ulil Albab Website</h3>
+                       <div class="project-description">
+                           <p>Interactive website for Ulil Albab Mosque featuring prayer times, Quranic resources, community events, and donation management. Built with modern web technologies and responsive design.</p>
+                       </div>
+                       <ul class="project-tech-list">
+                           <li>React</li>
+                           <li>Next.js</li>
+                           <li>Tailwind CSS</li>
+                           <li>Firebase</li>
+                       </ul>
+                       <div class="project-links">
+                           <a href="https://masjid-ulil-albab.vercel.app/" class="project-link" aria-label="External Link" rel="noopener noreferrer" target="_blank">
+                               <i class="fas fa-external-link-alt"></i>
+                           </a>
+                       </div>
+                   </div>
+                   <div class="project-image">
+                       <img src="img/masjid2.jpg" alt="Masjid Ulil Albab Website">
+                   </div>
+               </div>
+           </div>
+           
+           <div class="other-projects">
+               <h3 class="other-projects-title">Other Noteworthy Projects</h3>
+               
+               <div class="projects-grid">
+                   <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                       <div class="project-card-inner">
+                           <div class="project-card-top">
+                               <div class="project-card-folder">
+                                   <i class="far fa-folder-open"></i>
+                               </div>
+                               <div class="project-card-links">
+                                   <a href="#" aria-label="External Link" class="project-card-link">
+                                       <i class="fas fa-external-link-alt"></i>
+                                   </a>
+                               </div>
+                           </div>
+                           <h3 class="project-card-title">Village Administration System</h3>
+                           <div class="project-card-description">
+                               <p>A comprehensive web-based application for village government administration, including resident data management, public service requests, and official document processing.</p>
+                           </div>
+                           <ul class="project-card-tech-list">
+                               <li>CodeIgniter 4</li>
+                               <li>MySQL</li>
+                               <li>jQuery</li>
+                               <li>Bootstrap</li>
+                           </ul>
+                       </div>
+                   </div>
+                   
+                   <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                       <div class="project-card-inner">
+                           <div class="project-card-top">
+                               <div class="project-card-folder">
+                                   <i class="far fa-folder-open"></i>
+                               </div>
+                               <div class="project-card-links">
+                                   <a href="#" aria-label="External Link" class="project-card-link">
+                                       <i class="fas fa-external-link-alt"></i>
+                                   </a>
+                               </div>
+                           </div>
+                           <h3 class="project-card-title">School Management System</h3>
+                           <div class="project-card-description">
+                               <p>A fully-featured school management system with modules for student information, academic records, attendance tracking, grade management, and parent communication.</p>
+                           </div>
+                           <ul class="project-card-tech-list">
+                               <li>Laravel</li>
+                               <li>Vue.js</li>
+                               <li>PostgreSQL</li>
+                               <li>Tailwind CSS</li>
+                           </ul>
+                       </div>
+                   </div>
+                   
+                   <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                       <div class="project-card-inner">
+                           <div class="project-card-top">
+                               <div class="project-card-folder">
+                                   <i class="far fa-folder-open"></i>
+                               </div>
+                               <div class="project-card-links">
+                                   <a href="#" aria-label="External Link" class="project-card-link">
+                                       <i class="fas fa-external-link-alt"></i>
+                                   </a>
+                               </div>
+                           </div>
+                           <h3 class="project-card-title">Furniture E-Commerce Platform</h3>
+                           <div class="project-card-description">
+                               <p>A responsive e-commerce platform for furniture sales with product cataloging, shopping cart functionality, secure checkout process, and integration with payment gateways.</p>
+                           </div>
+                           <ul class="project-card-tech-list">
+                               <li>Next.js</li>
+                               <li>MongoDB</li>
+                               <li>Stripe API</li>
+                               <li>Material UI</li>
+                           </ul>
+                       </div>
                    </div>
                </div>
                
-               <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                   <img src="img/project3.jpg" alt="Project 3" class="project-img">
-                   <div class="project-content">
-                       <h3>Project 3</h3>
-                       <p>Website Pemerintahan Desa</p>
-                       <a href="#" class="btn btn-primary">View Project</a>
-                   </div>
-               </div>
-               <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                   <img src="img/project4.jpg" alt="Project 4" class="project-img">
-                   <div class="project-content">
-                       <h3>Project 4</h3>
-                       <p>Website Sekolah</p>
-                       <a href="#" class="btn btn-primary">View Project</a>
-                   </div>
-               </div>
-               <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-                   <img src="img/project5.png" alt="Project 5" class="project-img">
-                   <div class="project-content">
-                       <h3>Project 5</h3>
-                       <p>Website Furniture Store</p>
-                       <a href="#" class="btn btn-primary">View Project</a>
-                   </div>
+               <div class="show-more-container" data-aos="fade-up">
+                   <button class="btn btn-outline show-more-btn">Show More</button>
                </div>
            </div>
        </div>
    </section>
 
    <!-- Contact Section -->
-   <section id="contact" class="section-animate">
+   <section id="contact" class="section">
        <div class="container">
-           <h2 class="section-title">Get In Touch</h2>
-           <p>Feel free to reach out for collaborations or just a friendly hello</p>
-           <div class="social-links" data-aos="fade-up">
-               <a href="https://github.com/wahyuramadhani7" class="social-link">
-                   <i class="fab fa-github"></i>
-               </a>
-               <a href="https://www.linkedin.com/in/wahyu-ramadhani-a6b628262/" class="social-link">
-                   <i class="fab fa-linkedin"></i>
-               </a>
-               <a href="https://www.instagram.com/_whyu.rmdhni/" class="social-link">
-                   <i class="fab fa-instagram"></i>
-               </a>
-               <a href="https://wa.me/+6282241992151" class="social-link">
-                   <i class="fab fa-whatsapp"></i>
-               </a>
+           <div class="section-header center">
+               <span class="section-number">04.</span>
+               <h2 class="section-title">Get In Touch</h2>
+               <div class="section-line"></div>
+           </div>
+           
+           <div class="contact-content" data-aos="fade-up">
+               <h3 class="contact-title">Interested in working together?</h3>
+               <p class="contact-description">
+                   Whether you have a question, project proposal, or just want to say hi, feel free to reach out to me through any of the channels below. I'll do my best to get back to you as soon as possible!
+               </p>
+               
+               <div class="contact-links">
+                   <a href="mailto:wahyuramadhani@example.com" class="contact-link email-link">
+                       <i class="far fa-envelope"></i>
+                       <span>wahyuramadhani@example.com</span>
+                   </a>
+                   
+                   <a href="tel:+6282241992151" class="contact-link phone-link">
+                       <i class="fas fa-phone-alt"></i>
+                       <span>+62 822 4199 2151</span>
+                   </a>
+               </div>
+               
+               <div class="contact-button-container">
+                   <a href="mailto:wahyuramadhani@example.com" class="btn btn-primary">Say Hello</a>
+               </div>
+               
+               <div class="social-links">
+                   <a href="https://github.com/wahyuramadhani7" class="social-link" target="_blank" rel="noopener noreferrer">
+                       <i class="fab fa-github"></i>
+                   </a>
+                   <a href="https://www.linkedin.com/in/wahyu-ramadhani-a6b628262/" class="social-link" target="_blank" rel="noopener noreferrer">
+                       <i class="fab fa-linkedin-in"></i>
+                   </a>
+                   <a href="https://www.instagram.com/_whyu.rmdhni/" class="social-link" target="_blank" rel="noopener noreferrer">
+                       <i class="fab fa-instagram"></i>
+                   </a>
+                   <a href="https://wa.me/+6282241992151" class="social-link" target="_blank" rel="noopener noreferrer">
+                       <i class="fab fa-whatsapp"></i>
+                   </a>
+               </div>
            </div>
        </div>
    </section>
 
    <!-- Footer -->
    <footer>
-       <p>&copy; 2024 Wahyu Ramadhani. All rights reserved.</p>
+       <div class="container">
+           <div class="footer-content">
+               <div class="footer-text">
+                   <p>Designed & Built by Wahyu Ramadhani</p>
+               </div>
+               <div class="footer-links">
+                   <a href="#" class="footer-link">Privacy Policy</a>
+                   <span class="footer-separator">|</span>
+                   <a href="#" class="footer-link">Terms of Service</a>
+               </div>
+               <div class="copyright">
+                   <p>&copy; 2024 Wahyu Ramadhani. All rights reserved.</p>
+               </div>
+           </div>
+       </div>
    </footer>
 
+   <!-- Scroll To Top Button -->
+   <button class="scroll-top-btn">
+       <i class="fas fa-arrow-up"></i>
+   </button>
+
    <!-- Scripts -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
    <script src="script.js"></script>
 </body>
